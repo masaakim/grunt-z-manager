@@ -45,7 +45,7 @@ module.exports = function (grunt) {
 
   grunt.loadTasks('tasks');
 
-  grunt.registerTask('test', ['clean', 'z_manager']);
+  grunt.registerTask('test', ['clean', 'z_manager:adapt']);
   grunt.registerTask('default', ['jshint', 'test']);
 
 };
