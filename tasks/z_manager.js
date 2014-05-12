@@ -11,6 +11,7 @@
 module.exports = function (grunt) {
 
   var Zmanager = require('z-manager');
+  var fs = require('fs');
 
   grunt.registerMultiTask('z_manager', 'grunt plugin for z-manager', function () {
 
@@ -29,12 +30,10 @@ module.exports = function (grunt) {
         }
       }).map(function (filepath) {
         var zmanagerc = fs.readFileSync("./.zmanagerc").toString();
-        var css = fs.readFileSync(grunt.file.read(filepath)).toString();
+        var css = grunt.file.read(filepath);
         var z = new Zmanager(css);
-        var res = z.adapt(zmanagerc);
+        return z.adapt(zmanagerc);
       }).join(grunt.util.normalizelf(options.separator));
-
-      src += options.punctuation;
 
       grunt.file.write(file.dest, src);
 

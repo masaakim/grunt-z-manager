@@ -33,19 +33,19 @@ module.exports = function (grunt) {
         files: {
           'tmp/out.css': ['test/fixtures/z-manager.css']
         }
-      },
+      }/*,
       create: {
         files: {
           './.zmanagerc': ['test/fixtures/z-manager.css']
         }
-      }
+      }*/
     }
 
   });
 
   grunt.loadTasks('tasks');
 
-  grunt.registerTask('test', ['clean', 'z_manager.adapt']);
+  grunt.registerTask('test', ['clean', 'z_manager']);
   grunt.registerTask('default', ['jshint', 'test']);
 
 };
